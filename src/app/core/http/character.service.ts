@@ -18,20 +18,16 @@ export class CharacterService {
   API_KEY = environment.API_KEY;
   API_URL = environment.API_URL;
   CHARACTERS_URL = environment.CHARACTERS_URL;
-  BASE_URL = ''
+  BASE_URL = `${this.API_URL}${this.CHARACTERS_URL}`;
 
 
-  constructor(private httpClient: HttpClient) {
-    
-    this.BASE_URL = `${this.API_URL}${this.CHARACTERS_URL}`;
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getCharacters(): Observable<any> {
-    let hashStr = this.getHashValue();
-    return this.httpClient.get(`${this.baseUrl}?ts=${this.timeStamp}&apikey=${this.API_KEY}&hash=${hashStr}`);
+    return this.httpClient.get(`${this.baseUrl}?ts=${this.timeStamp}&apikey=${this.API_KEY}&hash=${this.getHashValue}`);
   }
 
-  getHashValue() {
+  get getHashValue() {
     return Md5.hashStr(this.timeStamp + this.PRIV_KEY + this.API_KEY);
   }
 
