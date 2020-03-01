@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+ul {
+  list-style: none;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  font-family: 'Roboto';
+  justify-content: space-around;
+}
+
+li {
+  display: flex;
+  width: 49%;
+  margin: 10px 5px;
+}

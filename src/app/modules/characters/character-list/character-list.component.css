@@ -1,0 +1,69 @@
+.page-title {
+  font-size: 35px;
+  font-weight: lighter;
+  font-family: 'Roboto';
+  letter-spacing: 0.4px;
+  color: #9fa09fad;
+  padding: 15px 5px;
+}
+
+.line-divider {
+  width: 100%;
+  background-color: #eae5e5f7;
+  height: 1px;
+  margin-top: 5px;
+}
+
+.spinner-container {
+  margin-left: calc(50% - 25px);
+  margin-top: calc(20% - 100px);
+}
+
+.spinner-container div {
+  font-family: 'Roboto';
+  letter-spacing: 0.4px;
+  color: #9fa09fad;
+}
+
+mat-card {
+  width: 100%;
+}
+
+.mat-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  margin-right: 2%;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.description-container {
+  letter-spacing: 0.2px;
+}
+
+.character-img {
+  border-radius: 2%;
+  box-shadow: 0 0 6px 3px #0000008c;
+}
+
+.no-data-found {
+  font-size: 20px;
+  font-family: 'Roboto';
+  color: #c2bfbe;
+  margin: 20px;
+}
