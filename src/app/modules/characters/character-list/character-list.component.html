@@ -1,7 +1,8 @@
 <div class="page-title">
-  Personagens
-  <div class="line-divider"></div>
+  <span>Personagens</span>
+  <div *ngIf="attributionData?.attributionHTML" [innerHtml]="attributionData['attributionHTML']" class="attribution-data"></div>
 </div>
+<div class="line-divider"></div>
 <div class="spinner-container" *ngIf="isLoadingCharacters">
   <mat-spinner mode="indeterminate" color="warn" diameter="50"></mat-spinner>
   <div>

@@ -4,6 +4,7 @@ import { tap } from "rxjs/operators/";
 import { CharacterService } from '../../../core/http/character.service';
 import { Character } from '../../../core/models/character';
 import { ImageValues } from '../../../core/shared/image-values';
+import { AttributionData } from '../../../core/models/attribution-data';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { ImageValues } from '../../../core/shared/image-values';
 export class CharacterListComponent implements OnInit {
   
   characters: Character;
+  attributionData: AttributionData;
 
   isLoadingCharacters: boolean = false;
   noDataFound: boolean = false;
@@ -29,8 +31,9 @@ export class CharacterListComponent implements OnInit {
     this.isLoadingCharacters = true;
 
     const receivedCharacters = {
-      next: (characters) => {
-        this.characters = characters['data']['results'];
+      next: (response) => {
+        this.setAttributionData(response);
+        this.characters = response['data']['results'];
         this.isLoadingCharacters = false;
       },
       error: (response) => {
@@ -47,6 +50,10 @@ export class CharacterListComponent implements OnInit {
 
   getImageUrl(character: Character) {
     return `${character.thumbnail['path']}/${ImageValues.VARIANT_NAME}.${character.thumbnail['extension']}`;
+  }
+
+  setAttributionData(response: any) {
+    this.attributionData = new AttributionData(response['attributionText'], response['attributionHTML'], response['copyright']);
   }
 
 }

@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0px 2%;
+  overflow-x: hidden;
+  background-color: #ececec4d;
+}
+
 ul {
   list-style: none;
   margin-inline-start: 0;
@@ -18,4 +25,9 @@ li {
   display: flex;
   width: 49%;
   margin: 10px 5px;
+}
+
+li > .mat-card {
+  background-color: #FFF;
+  color: #847b7b;
 }
