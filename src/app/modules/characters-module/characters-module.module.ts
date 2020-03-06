@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { CharacterListComponent } from '../characters/character-list/character-list.component';
 import { CharacterRoutingModule } from './character-routing-module';
@@ -14,7 +15,8 @@ import { CharacterRoutingModule } from './character-routing-module';
     CommonModule,
     CharacterRoutingModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    InfiniteScrollModule
   ],
   exports: [
     CharacterListComponent

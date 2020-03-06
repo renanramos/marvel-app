@@ -3,6 +3,7 @@ import { tap } from "rxjs/operators/";
 
 import { CharacterService } from '../../../core/http/character.service';
 import { Character } from '../../../core/models/character';
+import { InfiniteScrollValues } from '../../../core/shared/infinite-scroll-values';
 import { ImageValues } from '../../../core/shared/image-values';
 import { AttributionData } from '../../../core/models/attribution-data';
 
@@ -14,11 +15,15 @@ import { AttributionData } from '../../../core/models/attribution-data';
 })
 export class CharacterListComponent implements OnInit {
   
-  characters: Character;
+  characters: Character[] = [];
   attributionData: AttributionData;
 
   isLoadingCharacters: boolean = false;
   noDataFound: boolean = false;
+  
+  isLoadingMore: boolean = false;
+
+  scrollOffset = InfiniteScrollValues.SCROLL_INITIAL_OFFSET;
 
   constructor(private characterService: CharacterService) {}
 
@@ -35,6 +40,7 @@ export class CharacterListComponent implements OnInit {
         this.setAttributionData(response);
         this.characters = response['data']['results'];
         this.isLoadingCharacters = false;
+        this.scrollOffset += InfiniteScrollValues.SCROLL_INCREASE_OFFSET;
       },
       error: (response) => {
         this.isLoadingCharacters = false;
@@ -42,7 +48,7 @@ export class CharacterListComponent implements OnInit {
       }
     }
 
-    await this.characterService.getCharacters()
+    await this.characterService.getCharacters(null)
       .pipe(tap(receivedCharacters))
       .toPromise()
       .then();
@@ -56,4 +62,28 @@ export class CharacterListComponent implements OnInit {
     this.attributionData = new AttributionData(response['attributionText'], response['attributionHTML'], response['copyright']);
   }
 
+  async onScroll() {
+    
+    if (!this.isLoadingMore) {
+      
+     this.isLoadingMore = true;
+
+     const receivedCharacters = {
+        next: (characters) => {
+          if(characters) {
+            this.characters = [...this.characters, ...characters['data']['results']];
+            this.isLoadingMore = false;
+            this.scrollOffset += InfiniteScrollValues.SCROLL_INCREASE_OFFSET;
+          }
+        },
+        error: (response) => this.isLoadingMore = false
+      };
+  
+      await this.characterService.getCharacters(this.scrollOffset)
+        .pipe(tap(receivedCharacters))
+        .toPromise()
+        .then();
+    }
+
+  }
 }

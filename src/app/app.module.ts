@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CharactersModuleModule } from './modules/characters-module/characters-module.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CharactersModuleModule } from './modules/characters-module/characters-m
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CharactersModuleModule
+    CharactersModuleModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

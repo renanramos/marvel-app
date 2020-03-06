@@ -3,29 +3,36 @@
   <div *ngIf="attributionData?.attributionHTML" [innerHtml]="attributionData['attributionHTML']" class="attribution-data"></div>
 </div>
 <div class="line-divider"></div>
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+  >
+  <ul *ngIf="!isLoadingCharacters && characters">
+    <li *ngFor="let character of characters">
+      <mat-card>
+        <mat-card-title>{{ character.name }}</mat-card-title>
+        <div class="mat-card-container">
+          <div class="card-header">
+            <img class="character-img" mat-card-md-image [src]="getImageUrl(character)">
+          </div>
+          <mat-card-content>
+            <p class="description-container">
+              {{ (character.description ? character.description : 'No description available') }}
+            </p>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </li>
+  </ul>
+  <div *ngIf="noDataFound" class="no-data-found">
+    Não foi possível carregar dados de personagens.
+  </div>
+</div>
 <div class="spinner-container" *ngIf="isLoadingCharacters">
   <mat-spinner mode="indeterminate" color="warn" diameter="50"></mat-spinner>
   <div>
     Loading...
   </div>
-</div>
-<ul *ngIf="!isLoadingCharacters && characters">
-  <li *ngFor="let character of characters">
-    <mat-card>
-      <mat-card-title>{{ character.name }}</mat-card-title>
-      <div class="mat-card-container">
-        <div class="card-header">
-          <img class="character-img" mat-card-md-image [src]="getImageUrl(character)">
-        </div>
-        <mat-card-content>
-          <p class="description-container">
-            {{ (character.description ? character.description : 'No description available') }}
-          </p>
-        </mat-card-content>
-      </div>
-    </mat-card>
-  </li>
-</ul>
-<div *ngIf="noDataFound" class="no-data-found">
-  Não foi possível carregar dados de personagens.
 </div>
