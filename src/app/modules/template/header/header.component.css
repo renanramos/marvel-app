@@ -1,0 +1,47 @@
+.header {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+  background: whitesmoke;
+  color: #424242;
+  padding: 10px 20px;
+}
+
+.title {
+  width: 53%;
+  font-size: 45px;
+}
+
+.search-box {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
+}
+
+.search-form {
+  width: 100%
+}
+
+.form-field-full-width {
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .title {
+    width: 100%;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .form-field-full-width {
+    width: 95%;
+  }
+}

@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  margin: 0px 2%;
   overflow-x: hidden;
-  background-color: #ececec4d;
+  background-color: #c1c1c14d;
+  margin: 0px
 }
 
 ul {
@@ -18,13 +18,15 @@ ul {
   flex-wrap: wrap;
   width: 100%;
   font-family: 'Roboto';
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 li {
   display: flex;
-  width: 49%;
+  width: 300px;
   margin: 10px 5px;
+  max-width: 500px;
+  min-width: 30vw;
 }
 
 li > .mat-card {

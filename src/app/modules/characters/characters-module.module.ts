@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
-import { CharacterListComponent } from '../characters/character-list/character-list.component';
+import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterRoutingModule } from './character-routing-module';
 
 @NgModule({

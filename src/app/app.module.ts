@@ -6,8 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CharactersModuleModule } from './modules/characters-module/characters-module.module';
+import { CharactersModuleModule } from './modules/characters/characters-module.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { TemplateModule } from './modules/template/template.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
+    TemplateModule,
     CharactersModuleModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

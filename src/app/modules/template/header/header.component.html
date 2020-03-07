@@ -1,0 +1,13 @@
+<mat-toolbar class="header">
+  <div class="title">
+    Personagens
+  </div>
+  <div class="search-box">
+    <form class="search-form" [formGroup]="searchForm">
+      <mat-form-field class="form-field-full-width">
+        <input formControlName="search" matInput placeholder="Nome do personagem">
+        <mat-icon matPreffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-toolbar>

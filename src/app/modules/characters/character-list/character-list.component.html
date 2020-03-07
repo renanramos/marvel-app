@@ -1,8 +1,8 @@
-<div class="page-title">
+<!-- <div class="page-title">
   <span>Personagens</span>
   <div *ngIf="attributionData?.attributionHTML" [innerHtml]="attributionData['attributionHTML']" class="attribution-data"></div>
 </div>
-<div class="line-divider"></div>
+<div class="line-divider"></div> -->
 <div
   infiniteScroll
   [infiniteScrollDistance]="infiniteScrollDistance"
@@ -26,13 +26,13 @@
       </mat-card>
     </li>
   </ul>
-  <div *ngIf="noDataFound" class="no-data-found">
-    Não foi possível carregar dados de personagens.
-  </div>
 </div>
 <div class="spinner-container" *ngIf="isLoadingCharacters">
   <mat-spinner mode="indeterminate" color="warn" diameter="50"></mat-spinner>
   <div>
     Loading...
   </div>
+</div>
+<div *ngIf="noDataFound" class="no-data-found">
+  Não foi possível carregar dados de personagens.
 </div>

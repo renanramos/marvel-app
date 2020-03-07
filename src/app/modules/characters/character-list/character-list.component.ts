@@ -30,6 +30,7 @@ export class CharacterListComponent implements OnInit {
   constructor(private characterService: CharacterService) {}
 
   async ngOnInit() {
+    // this.noDataFound = true;
     await this.getCharacters();
   }
 
