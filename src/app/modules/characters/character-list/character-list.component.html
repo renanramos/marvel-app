@@ -5,9 +5,9 @@
 <div class="line-divider"></div>
 <div
   infiniteScroll
-  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="50"
-  (scrolled)="onScroll()"
+  [infiniteScrollDistance]="infiniteScrollDistance"
+  [infiniteScrollThrottle]="infiniteScrollThrottle"
+  (scrolled)="onScrollDown()"
   >
   <ul *ngIf="!isLoadingCharacters && characters">
     <li *ngFor="let character of characters">

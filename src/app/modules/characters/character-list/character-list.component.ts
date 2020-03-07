@@ -24,6 +24,8 @@ export class CharacterListComponent implements OnInit {
   isLoadingMore: boolean = false;
 
   scrollOffset = InfiniteScrollValues.SCROLL_INITIAL_OFFSET;
+  infiniteScrollDistance = InfiniteScrollValues.SCROLL_DISTANCE;
+  infiniteScrollThrottle = InfiniteScrollValues.SCROLL_THROTTLE;
 
   constructor(private characterService: CharacterService) {}
 
@@ -62,7 +64,7 @@ export class CharacterListComponent implements OnInit {
     this.attributionData = new AttributionData(response['attributionText'], response['attributionHTML'], response['copyright']);
   }
 
-  async onScroll() {
+  async onScrollDown() {
     
     if (!this.isLoadingMore) {
       
