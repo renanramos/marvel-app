@@ -1,12 +1,12 @@
-<mat-toolbar class="header">
+<mat-toolbar class="header mat-elevation-z4">
   <div class="title">
     Personagens
   </div>
   <div class="search-box">
     <form class="search-form" [formGroup]="searchForm">
       <mat-form-field class="form-field-full-width">
-        <input formControlName="search" matInput placeholder="Nome do personagem">
-        <mat-icon matPreffix>search</mat-icon>
+        <mat-icon matPrefix>search</mat-icon>
+        <input formControlName="search" matInput placeholder="Nome do personagem" (keyup)="onSearchCharacter($event);">
       </mat-form-field>
     </form>
   </div>

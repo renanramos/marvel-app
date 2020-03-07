@@ -6,9 +6,7 @@ import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment.dev';
 import { ApiValues } from '../shared/api-values';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CharacterService {
 
   hash: string = '';
@@ -23,9 +21,13 @@ export class CharacterService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCharacters(offset?: number): Observable<any> {
+  getCharacters(offset?: number, filter?: string): Observable<any> {
 
-    let queryString = `limit=${ApiValues.LIMIT}&`;
+    let queryString = `limit=${ApiValues.LIMIT}&`   
+
+    if (filter) {
+      queryString += `nameStartsWith=${filter}&`;
+    }
 
     if (offset) {
       queryString += `offset=${offset}&`;

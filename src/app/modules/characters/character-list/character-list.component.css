@@ -85,6 +85,8 @@ mat-card-title {
 .no-data-found {
   font-size: 20px;
   font-family: 'Roboto';
-  color: #c2bfbe;
+  color: #797979;
+  font-weight: 400;
   margin: 20px 0px;
+  padding: 10px 20px;
 }

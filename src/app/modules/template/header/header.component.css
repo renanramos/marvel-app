@@ -15,6 +15,7 @@
 .title {
   width: 53%;
   font-size: 45px;
+  font-weight: 100;
 }
 
 .search-box {
@@ -30,6 +31,10 @@
 
 .form-field-full-width {
   width: 100%;
+}
+
+.mat-form-field {
+  font-weight: 300;
 }
 
 @media screen and (max-width: 500px) {

@@ -27,12 +27,12 @@
     </li>
   </ul>
 </div>
+<div *ngIf="dataNotFound && !isLoadingCharacters" class="no-data-found">
+  Não foi possível carregar dados de personagens.
+</div>
 <div class="spinner-container" *ngIf="isLoadingCharacters">
   <mat-spinner mode="indeterminate" color="warn" diameter="50"></mat-spinner>
   <div>
     Loading...
   </div>
-</div>
-<div *ngIf="noDataFound" class="no-data-found">
-  Não foi possível carregar dados de personagens.
 </div>
