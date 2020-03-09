@@ -43,7 +43,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
     await this.getCharacters();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.searchSubscription &&
       this.searchSubscription.unsubscribe();
   }
@@ -52,11 +52,7 @@ export class CharacterListComponent implements OnInit, OnDestroy {
     this.searchSubscription = this.searchService.search$.asObservable()
     .pipe(debounceTime(300))
     .subscribe(characterName => {
-      if(characterName) {
-        this.filterString = characterName;
-      } else {
-        this.filterString = '';
-      }
+      this.filterString = characterName ? characterName : '';
       this.getCharacters();
     });
   }
